@@ -1,0 +1,411 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --dzong-blue: #2B3F55;      /* Dark blue like traditional dzong walls */
+    --mountain-slate: #4A5568;   /* Slate blue like Himalayan mountains */
+    --cloud-gray: #95A5A6;       /* Soft gray like mountain mists */
+    --prayer-red: #E74C3C;       /* Vibrant red like prayer flags */
+    --rice-white: #f5f5f59d;       /* Off-white like rice  */
+    --text-dark: #333333;        /* Main text color */
+    --text-white: #ffffff;       /* White text */
+    --text-black: #000000;       /* Black text */
+    --river-blue: #3885e2;       /* Blue like Bhutan's rivers */
+}
+
+@layer base {
+  html {
+    font-family: var(--font-playfair), serif;
+  }
+
+  body {
+    @apply text-[var(--dzong-blue)];
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-cinzel), serif;
+  }
+
+  p {
+    @apply font-playfair;
+  }
+}
+
+@layer components {
+  /* Hero Section */
+  .hero-section {
+    @apply h-screen bg-cover bg-center bg-fixed flex items-center justify-center text-center relative;
+  }
+
+  .hero-content {
+    @apply bg-[rgba(44,62,80,0.9)] p-16 rounded-2xl backdrop-blur-md max-w-[900px] w-[90%] mx-auto text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-lg animate-fadeIn;
+  }
+
+  /* Features Section */
+  .temple-card {
+    @apply bg-white rounded-2xl overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-2;
+  }
+
+  .temple-image {
+    @apply h-[400px] overflow-hidden;
+  }
+
+  .temple-image img {
+    @apply w-full h-full object-cover transition-transform duration-500 hover:scale-110;
+  }
+
+  /* Stats Section */
+  .stats-section {
+    @apply bg-cover bg-center text-white py-20;
+    background-image: linear-gradient(rgba(94, 151, 198, 0.5), rgba(76, 98, 139, 0.555)),
+                     url('/Homeforest.jpg');
+  }
+
+  .stat-item {
+    @apply text-center p-8 bg-white/10 rounded-lg;
+  }
+
+  .stat-number {
+    @apply text-5xl font-bold mb-4 drop-shadow-lg;
+  }
+
+  /* Testimonials */
+  .testimonial-card {
+    @apply bg-white p-8 rounded-lg shadow-lg my-5;
+  }
+
+  /* Quiz Section */
+  .quiz-section {
+    @apply min-h-screen bg-gradient-to-br from-[var(--dzong-blue)] to-[var(--mountain-slate)] text-white;
+  }
+
+  .quiz-container {
+    @apply max-w-2xl mx-auto bg-white/10 backdrop-blur-md rounded-xl p-8;
+  }
+
+  .quiz-option {
+    @apply w-full text-left p-4 mb-3 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex items-center space-x-3 hover:bg-gray-50 cursor-pointer;
+  }
+
+  /* Travel Tips */
+  .tip-card {
+    @apply bg-white rounded-lg p-6 shadow-md transition-transform duration-300 hover:scale-105;
+  }
+
+  .tip-icon {
+    @apply text-4xl mb-4 text-[var(--dzong-blue)];
+  }
+
+  /* Blog Cards */
+  .blog-card {
+    @apply bg-white rounded-lg overflow-hidden shadow-lg mb-8;
+  }
+
+  .blog-meta {
+    @apply text-[var(--prayer-red)] text-sm;
+  }
+
+  /* Contact Form */
+  .contact-form {
+    @apply bg-white p-8 rounded-lg shadow-lg;
+  }
+
+  .contact-info {
+    @apply text-white;
+  }
+
+  /* Booking Form */
+  .booking-form {
+    @apply bg-white p-10 rounded-2xl shadow-2xl;
+  }
+
+  .form-control {
+    @apply px-4 py-3 border border-[var(--cloud-gray)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--river-blue)] focus:border-transparent;
+  }
+
+  .btn-primary {
+    @apply bg-[var(--river-blue)] text-white px-8 py-4 rounded-lg font-bold hover:bg-[var(--dzong-blue)] transition-all duration-300 hover:-translate-y-1;
+  }
+
+  /* Calculator */
+  .calculator-section {
+    @apply bg-[var(--rice-white)] py-16;
+  }
+
+  .result-card {
+    @apply bg-[var(--dzong-blue)] text-white p-8 rounded-xl shadow-lg;
+  }
+
+  /* Footer */
+  footer {
+    @apply bg-[var(--dzong-blue)] text-white py-16;
+  }
+
+  footer a {
+    @apply text-white hover:text-[var(--cloud-gray)] transition-colors duration-300;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer utilities {
+  .animate-fadeIn {
+    animation: fadeIn 2s ease-in;
+  }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .hero-content {
+    @apply p-8;
+  }
+
+  .hero-content h1 {
+    @apply text-3xl;
+  }
+
+  .temple-image {
+    @apply h-[300px];
+  }
+
+  .stat-number {
+    @apply text-4xl;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-content {
+    @apply w-[95%] p-6;
+  }
+
+  .temple-image {
+    @apply h-[250px];
+  }
+}
+
+/* Navigation */
+.navbar {
+    @apply py-4 bg-[var(--dzong-blue)];
+}
+
+.navbar-brand {
+    @apply text-3xl font-bold px-4 py-2 text-[var(--rice-white)];
+}
+
+.navbar-nav .nav-link {
+    @apply text-lg px-5 py-2 mx-1 transition-colors duration-300 text-[var(--rice-white)] hover:text-[var(--cloud-gray)];
+}
+
+.navbar-nav .nav-link.active {
+    @apply text-[var(--rice-white)] font-bold;
+}
+
+/* Blog Specific Styles */
+.blog-card img {
+    @apply h-64 object-cover w-full;
+}
+
+.blog-content {
+    @apply p-6;
+}
+
+.blog-title {
+    @apply text-2xl font-bold mb-2 text-[var(--dzong-blue)];
+}
+
+.blog-excerpt {
+    @apply text-[var(--text-dark)] mb-4;
+}
+
+.read-more-btn {
+    @apply inline-block px-4 py-2 bg-[var(--river-blue)] text-white rounded hover:bg-[var(--dzong-blue)] transition-colors;
+}
+
+/* Newsletter Section */
+.newsletter-section {
+    @apply bg-[var(--rice-white)] p-8 rounded-lg;
+}
+
+.newsletter-title {
+    @apply text-2xl font-bold mb-4 text-center text-[var(--dzong-blue)];
+}
+
+.newsletter-form {
+    @apply max-w-md mx-auto flex gap-4;
+}
+
+.newsletter-input {
+    @apply flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--river-blue)];
+}
+
+.newsletter-button {
+    @apply bg-[var(--river-blue)] text-white px-6 py-2 rounded-lg hover:bg-[var(--dzong-blue)] transition-colors;
+}
+
+/* Individual Blog Post */
+.blog-post {
+    @apply max-w-4xl mx-auto;
+}
+
+.blog-post-header {
+    @apply mb-8;
+}
+
+.blog-post-title {
+    @apply text-4xl font-bold mb-4 text-[var(--dzong-blue)];
+}
+
+.blog-post-meta {
+    @apply flex items-center text-[var(--cloud-gray)] mb-8;
+}
+
+.blog-post-content {
+    @apply max-w-none text-[var(--text-dark)] leading-relaxed;
+}
+
+.blog-post-content p {
+    @apply mb-6 text-lg;
+}
+
+.blog-post-content ul {
+    @apply mb-6 list-disc pl-6;
+}
+
+.blog-post-content li {
+    @apply mb-2;
+}
+
+.share-section {
+    @apply mt-12 pt-8 border-t;
+}
+
+.share-button {
+    @apply px-4 py-2 rounded text-white transition-colors;
+}
+
+.share-button.facebook {
+    @apply bg-[var(--river-blue)] hover:bg-[var(--dzong-blue)];
+}
+
+.share-button.twitter {
+    @apply bg-[var(--cloud-gray)] hover:bg-[var(--mountain-slate)];
+}
+
+/* Back Button */
+.back-button {
+    @apply inline-block mb-8 text-[var(--river-blue)] hover:text-[var(--dzong-blue)];
+}
+
+/* Not Found Page */
+.not-found {
+    @apply max-w-2xl mx-auto text-center;
+}
+
+.not-found-title {
+    @apply text-4xl font-bold mb-4 text-[var(--dzong-blue)];
+}
+
+.not-found-text {
+    @apply text-xl mb-8 text-[var(--text-dark)];
+}
+
+.not-found-button {
+    @apply inline-block bg-[var(--river-blue)] text-white px-6 py-3 rounded-lg hover:bg-[var(--dzong-blue)] transition-colors;
+}
+
+/* Booking Section */
+.booking-section {
+    @apply bg-cover bg-center py-20;
+    background-image: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.85)),
+                     url('/booking_background.webp');
+}
+
+.form-select {
+    @apply px-4 py-3 border border-[var(--cloud-gray)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--river-blue)] focus:border-transparent bg-white;
+}
+
+.cost-item {
+    @apply mb-6;
+}
+
+.cost-item p {
+    @apply mb-2;
+}
+
+.cost-item hr {
+    @apply border-t border-[var(--rice-white)] opacity-20 my-4;
+}
+
+.form-check {
+    @apply flex items-center space-x-2 text-[var(--text-dark)];
+}
+
+.form-check input[type="checkbox"] {
+    @apply w-4 h-4 text-[var(--river-blue)] border-[var(--cloud-gray)] rounded focus:ring-[var(--river-blue)];
+}
+
+/* Contact Page Styles */
+.contact-hero-section {
+    @apply bg-cover bg-center py-20;
+    background-image: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.85)),
+                     url('/contact_teamStaff.jpg');
+}
+
+.team-member img {
+    @apply transition-transform duration-300;
+}
+
+.team-member:hover img {
+    @apply scale-110;
+}
+
+.team-member h5 {
+    @apply text-[var(--dzong-blue)] mb-1;
+}
+
+.team-member p {
+    @apply text-sm text-[var(--cloud-gray)];
+}
+
+.contact-info {
+    @apply bg-[var(--dzong-blue)] text-white p-8 rounded-xl shadow-lg;
+}
+
+.contact-info h3 {
+    @apply text-[var(--rice-white)] font-['Cinzel'];
+}
+
+.contact-info p {
+    @apply text-[var(--rice-white)] opacity-90;
+}
+
+.map-container {
+    @apply w-full h-[450px] rounded-xl overflow-hidden shadow-lg;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .team-member {
+        @apply mb-8;
+    }
+    
+    .contact-info {
+        @apply mt-8;
+    }
+    
+    .map-container {
+        @apply h-[300px];
+    }
+} 
